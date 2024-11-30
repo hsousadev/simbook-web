@@ -2,8 +2,6 @@
 // pages/index.js
 import axios from "axios";
 
-import { Heart } from "@phosphor-icons/react";
-
 // SSR
 export const getServerSideProps = async () => {
   try {
@@ -30,11 +28,7 @@ export const getServerSideProps = async () => {
 export function Home({ data }: any) {
   console.log("data", data);
 
-  return (
-    <div className="bg-main-color">
-      Apenas um teste de build <Heart size={24} color="red" />
-    </div>
-  );
+  return <div className="bg-main-color">Apenas um teste de build</div>;
 }
 
 export default Home;
