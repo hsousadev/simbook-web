@@ -9,8 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "surface-color-primary": "var(--surface-color-primary)",
+        "surface-color-secundary": "var(--surface-color-secondary)",
+        "main-color": "var(--main-color)",
+        "text-primary-color": "var(--text-primary-color)",
+        "text-secondary-color": "var(--text-secondary-color)",
+        "line-color": "var(--line-color)",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
       },
     },
   },
