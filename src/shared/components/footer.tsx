@@ -23,7 +23,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between w-full">
+      <div className="flex flex-col gap-4 items-center justify-center w-full md:flex md:flex-row md:justify-between">
         <span>©2024 · Aplicação de gerenciamento de Livros. </span>
         <a
           href="https://henriquesousadev.vercel.app"
