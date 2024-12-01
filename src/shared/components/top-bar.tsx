@@ -27,6 +27,7 @@ export function TopBar() {
 
   return (
     <div
+      id="top"
       className={`${
         isMobileOptionsVisible ? "flex flex-col" : "flex flex-row"
       } flex flex-row w-full justify-between max-w-screen-xl p-6 gap-4`}

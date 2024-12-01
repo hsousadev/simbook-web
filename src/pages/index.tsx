@@ -6,6 +6,9 @@ import TopBar from "@/shared/components/top-bar";
 import SearchBar from "@/shared/components/search-bar";
 import Categories from "@/shared/components/categories";
 
+import BooksSection from "@/shared/components/books-section";
+import Footer from "@/shared/components/footer";
+
 // SSR
 // export const getServerSideProps = async () => {
 //   try {
@@ -53,7 +56,13 @@ export function Home() {
         />
       </div>
 
-      <Categories />
+      <div className="flex flex-col gap-12 items-center justify-center">
+        <Categories />
+        <BooksSection sectionTitle="Adicionados recentemente" />
+        <BooksSection sectionTitle="Explore diferentes títulos" />
+      </div>
+
+      <Footer />
     </div>
   );
 }
