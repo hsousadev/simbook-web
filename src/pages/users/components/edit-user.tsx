@@ -27,11 +27,11 @@ export function EditUser({ user, onClose }: EditaUserProps) {
       const response = await axios.put(
         `https://simbook-node-server.onrender.com/users/${user.id}`,
         {
-          name: parsedUser.name,
-          username: parsedUser.username,
-          password: parsedUser.password,
-          imgurl: parsedUser.imgurl,
-          permission: parsedUser.permission,
+          name: parsedUser?.name,
+          username: parsedUser?.username,
+          password: parsedUser?.password,
+          imgurl: parsedUser?.imgurl,
+          permission: parsedUser?.permission,
         }
       );
 
@@ -79,17 +79,17 @@ export function EditUser({ user, onClose }: EditaUserProps) {
             type="text"
             maxLength={60}
             placeholder="Ex.: Henrique Sousa"
-            value={editedUser.name}
+            value={editedUser?.name}
             onChange={(e) =>
               setEditedUser({ ...editedUser, name: e.target.value })
             }
           />
         </div>
-        {!userSchema.shape.name.safeParse(editedUser.name).success && (
+        {!userSchema.shape.name.safeParse(editedUser?.name).success && (
           <span className="text-red-400 text-xs">
             {
-              userSchema.shape.name.safeParse(editedUser.name).error?.errors[0]
-                ?.message
+              userSchema.shape.name.safeParse(editedUser?.name)?.error
+                ?.errors[0]?.message
             }
           </span>
         )}
@@ -105,16 +105,16 @@ export function EditUser({ user, onClose }: EditaUserProps) {
             type="text"
             maxLength={60}
             placeholder="Ex.: henriue.sousa01"
-            value={editedUser.username}
+            value={editedUser?.username}
             onChange={(e) =>
               setEditedUser({ ...editedUser, username: e.target.value })
             }
           />
         </div>
-        {!userSchema.shape.username.safeParse(editedUser.username).success && (
+        {!userSchema.shape.username.safeParse(editedUser?.username).success && (
           <span className="text-red-400 text-xs">
             {
-              userSchema.shape.username.safeParse(editedUser.username).error
+              userSchema.shape.username.safeParse(editedUser?.username).error
                 ?.errors[0]?.message
             }
           </span>
@@ -129,16 +129,16 @@ export function EditUser({ user, onClose }: EditaUserProps) {
             type="text"
             maxLength={60}
             placeholder="https://..."
-            value={editedUser.imgurl}
+            value={editedUser?.imgurl}
             onChange={(e) =>
               setEditedUser({ ...editedUser, imgurl: e.target.value })
             }
           />
         </div>
-        {!userSchema.shape.imgurl.safeParse(editedUser.imgurl).success && (
+        {!userSchema.shape.imgurl.safeParse(editedUser?.imgurl).success && (
           <span className="text-red-400 text-xs">
             {
-              userSchema.shape.imgurl.safeParse(editedUser.imgurl).error
+              userSchema.shape.imgurl.safeParse(editedUser?.imgurl).error
                 ?.errors[0]?.message
             }
           </span>
@@ -152,16 +152,16 @@ export function EditUser({ user, onClose }: EditaUserProps) {
             className="text-xs bg-transparent outline-none appearance-none w-full focus:outline-none"
             type="password"
             maxLength={60}
-            value={editedUser.password}
+            value={editedUser?.password}
             onChange={(e) =>
               setEditedUser({ ...editedUser, password: e.target.value })
             }
           />
         </div>
-        {!userSchema.shape.password.safeParse(editedUser.password).success && (
+        {!userSchema.shape.password.safeParse(editedUser?.password).success && (
           <span className="text-red-400 text-xs">
             {
-              userSchema.shape.password.safeParse(editedUser.password).error
+              userSchema.shape.password.safeParse(editedUser?.password).error
                 ?.errors[0]?.message
             }
           </span>
@@ -175,18 +175,18 @@ export function EditUser({ user, onClose }: EditaUserProps) {
             className="text-xs bg-transparent outline-none appearance-none w-full focus:outline-none"
             type="text"
             maxLength={60}
-            value={editedUser.permission}
+            value={editedUser?.permission}
             onChange={(e) =>
               setEditedUser({ ...editedUser, permission: e.target.value })
             }
           />
         </div>
-        {!userSchema.shape.permission.safeParse(editedUser.permission)
+        {!userSchema.shape.permission.safeParse(editedUser?.permission)
           .success && (
           <span className="text-red-400 text-xs">
             {
-              userSchema.shape.permission.safeParse(editedUser.permission).error
-                ?.errors[0]?.message
+              userSchema.shape.permission.safeParse(editedUser?.permission)
+                .error?.errors[0]?.message
             }
           </span>
         )}
