@@ -1,15 +1,15 @@
 import Image from "next/image";
 
+import { useRouter } from "next/router";
+
 import heartOutline from "@/shared/assets/icons/heart-outline.svg";
 import MainButton from "./main-button";
 
-interface BookItemProps {
-  imgurl: string;
-  title: string;
-  authorname: string;
-}
+import { Book } from "@/pages";
 
-export function BookItem({ imgurl, title, authorname }: BookItemProps) {
+export function BookItem({ imgurl, title, authorname, id }: Book) {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col items-center justify-between gap-4 max-w-[8.75rem]">
       <div className="rounded-md overflow-hidden w-[8.75rem] object-contain h-[160px]">
@@ -40,7 +40,7 @@ export function BookItem({ imgurl, title, authorname }: BookItemProps) {
         <Image src={heartOutline} alt="Icone de favoritar" />
       </div>
 
-      <MainButton>Ver</MainButton>
+      <MainButton onClick={() => router.push(`/book/${id}`)}>Ver</MainButton>
     </div>
   );
 }

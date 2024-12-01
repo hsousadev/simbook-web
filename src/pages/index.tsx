@@ -35,35 +35,35 @@ export interface User {
 }
 
 // SSR
-// export const getServerSideProps = async () => {
-//   try {
-//     const respBooks = await axios.get(
-//       `https://simbook-node-server.onrender.com/books`
-//     );
-//     const books = respBooks.data;
+export const getServerSideProps = async () => {
+  try {
+    const respBooks = await axios.get(
+      `https://simbook-node-server.onrender.com/books`
+    );
+    const books = respBooks.data;
 
-//     const respUsers = await axios.get(
-//       "https://simbook-node-server.onrender.com/users"
-//     );
-//     const users = respUsers.data;
+    const respUsers = await axios.get(
+      "https://simbook-node-server.onrender.com/users"
+    );
+    const users = respUsers.data;
 
-//     return {
-//       props: {
-//         books: books,
-//         users: users,
-//       },
-//     };
-//   } catch (error) {
-//     console.error("Erro ao buscar dados:", error);
+    return {
+      props: {
+        books: books,
+        users: users,
+      },
+    };
+  } catch (error) {
+    console.error("Erro ao buscar dados:", error);
 
-//     return {
-//       props: {
-//         books: [],
-//         users: [],
-//       },
-//     };
-//   }
-// };
+    return {
+      props: {
+        books: [],
+        users: [],
+      },
+    };
+  }
+};
 
 export function Home({ books }: { books: Book[] }) {
   const router = useRouter();
@@ -79,8 +79,8 @@ export function Home({ books }: { books: Book[] }) {
 
   const [searchText, setSearchText] = useState("");
 
-  // const recentBooks = books.slice(0, 7);
-  // const exploreBooks = books.slice(7);
+  const recentBooks = books.slice(0, 7);
+  const exploreBooks = books.slice(7);
 
   async function handleSearch(searchText: string) {
     setSearchText(searchText);
@@ -167,14 +167,14 @@ export function Home({ books }: { books: Book[] }) {
         )}
 
         <Categories />
-        {/* <BooksSection
+        <BooksSection
           sectionTitle="Adicionados recentemente"
           books={recentBooks}
         />
         <BooksSection
           sectionTitle="Explore outros títulos"
           books={exploreBooks}
-        /> */}
+        />
       </div>
 
       <Footer />

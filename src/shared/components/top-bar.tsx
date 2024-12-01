@@ -26,6 +26,8 @@ import arrowUpOutline from "@/shared/assets/icons/arrow-up-outline.svg";
 import IconButton from "./icon-button";
 import UserInfo from "./user-info";
 import MainButton from "./main-button";
+import Modal from "./modal";
+import AddBook from "./add-book";
 
 export function TopBar() {
   const router = useRouter();
@@ -37,6 +39,8 @@ export function TopBar() {
     imgurl: "",
     permission: "",
   });
+
+  const [isAddBookModalOpen, setIsAddBookModalOpen] = useState(false);
 
   const [isMobileOptionsVisible, setIsMobileOptionsVisible] = useState(false);
 
@@ -90,7 +94,11 @@ export function TopBar() {
                 Gerenciar usuários
               </IconButton>
 
-              <IconButton icon={booksOutline} iconOnHover={booksFill}>
+              <IconButton
+                onClick={() => setIsAddBookModalOpen(true)}
+                icon={booksOutline}
+                iconOnHover={booksFill}
+              >
                 Adicionar livros
               </IconButton>
             </>
@@ -149,6 +157,15 @@ export function TopBar() {
           />
         </div>
       </div>
+
+      {isAddBookModalOpen && (
+        <Modal
+          onClose={() => setIsAddBookModalOpen(false)}
+          isOpen={isAddBookModalOpen}
+        >
+          <AddBook onClose={() => setIsAddBookModalOpen(false)} />
+        </Modal>
+      )}
     </div>
   );
 }
