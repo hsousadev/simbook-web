@@ -4,15 +4,15 @@
 
 :root {
   --surface-color-primary: #f9f9fb;
-  --surface-color-secundary: #f1f0f5;
+  --surface-color-secondary: #f1f0f5;
   --main-color: #4543f2;
   --font-primary-color: #40405f;
-  --font-secundary-color: #858294;
+  --font-secondary-color: #858294;
   --line-color: #cecdd2;
 }
 
 body {
-  color: var(--font-secundary-color);
+  color: var(--font-secondary-color);
   background: var(--surface-color-primary);
   font-family: Inter, sans-serif;
   @apply antialiased;

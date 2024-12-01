@@ -42,7 +42,7 @@ export function TopBar() {
       <div
         className={`${
           isMobileOptionsVisible ? "flex flex-col" : "hidden"
-        } md:flex md:flex-row items-center justify-between gap-4`}
+        } md:flex md:flex-row items-center justify-between gap-4 `}
       >
         <IconButton icon={heartOutline} iconOnHover={heartFill}>
           Seus favoritos

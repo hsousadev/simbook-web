@@ -11,7 +11,7 @@ export default {
     extend: {
       colors: {
         "surface-color-primary": "var(--surface-color-primary)",
-        "surface-color-secundary": "var(--surface-color-secondary)",
+        "surface-color-secondary": "var(--surface-color-secondary)",
         "main-color": "var(--main-color)",
         "font-primary-color": "var(--font-primary-color)",
         "font-secondary-color": "var(--font-secondary-color)",
