@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { useRouter } from "next/router";
+
+import { User } from "@/pages";
 
 import Image from "next/image";
 
@@ -21,9 +25,36 @@ import arrowUpOutline from "@/shared/assets/icons/arrow-up-outline.svg";
 
 import IconButton from "./icon-button";
 import UserInfo from "./user-info";
+import MainButton from "./main-button";
 
 export function TopBar() {
+  const router = useRouter();
+
+  const [user, setUser] = useState<User>({
+    id: "",
+    username: "",
+    name: "",
+    imgurl: "",
+    permission: "",
+  });
+
   const [isMobileOptionsVisible, setIsMobileOptionsVisible] = useState(false);
+
+  function loadUserFromSessionStorage() {
+    const sessionUser = sessionStorage.getItem("user");
+    if (sessionUser) {
+      setUser(JSON.parse(sessionUser));
+    }
+  }
+
+  function clearUserOnSessionStorage() {
+    sessionStorage.removeItem("user");
+    window.location.reload();
+  }
+
+  useEffect(() => {
+    loadUserFromSessionStorage();
+  }, []);
 
   return (
     <div
@@ -40,36 +71,54 @@ export function TopBar() {
         <Image src={logo} alt="Logo Simbook" width={120} />
       </div>
 
-      <div
-        className={`${
-          isMobileOptionsVisible ? "flex flex-col" : "hidden"
-        } md:flex md:flex-row items-center justify-between gap-4 `}
-      >
-        <IconButton icon={heartOutline} iconOnHover={heartFill}>
-          Seus favoritos
-        </IconButton>
-        <IconButton icon={usersOutline} iconOnHover={usersFill}>
-          Gerenciar usuários
-        </IconButton>
-        <IconButton icon={booksOutline} iconOnHover={booksFill}>
-          Adicionar livros
-        </IconButton>
-        <IconButton
-          icon={signOutOutline}
-          iconOnHover={singOutFill}
-          color="text-red-400"
+      {user.username && (
+        <div
+          className={`${
+            isMobileOptionsVisible ? "flex flex-col" : "hidden"
+          } md:flex md:flex-row items-center justify-between gap-4 `}
         >
-          Sair
-        </IconButton>
+          <IconButton icon={heartOutline} iconOnHover={heartFill}>
+            Seus favoritos
+          </IconButton>
+          {user.permission.includes("main") && (
+            <>
+              <IconButton icon={usersOutline} iconOnHover={usersFill}>
+                Gerenciar usuários
+              </IconButton>
 
-        <div className={`${isMobileOptionsVisible ? "hidden" : "flex ml-4"}`}>
-          <UserInfo
-            name="Henrique Sousa"
-            imgurl="https://avatars.githubusercontent.com/u/54003876?v=4"
-            permission="admin.main"
-          />
+              <IconButton icon={booksOutline} iconOnHover={booksFill}>
+                Adicionar livros
+              </IconButton>
+            </>
+          )}
+
+          <IconButton
+            icon={signOutOutline}
+            iconOnHover={singOutFill}
+            color="text-red-400"
+            onClick={clearUserOnSessionStorage}
+          >
+            Sair
+          </IconButton>
+
+          <div className={`${isMobileOptionsVisible ? "hidden" : "flex ml-4"}`}>
+            <UserInfo
+              name={user.name}
+              imgurl={user.imgurl}
+              permission={user.permission}
+            />
+          </div>
         </div>
-      </div>
+      )}
+
+      {!user.username && (
+        <div className="flex items-center justify-between gap-6">
+          <p className="text-xs">Já tem uma conta?</p>
+          <MainButton onClick={() => router.push("/login")}>
+            Fazer Login
+          </MainButton>
+        </div>
+      )}
 
       <div
         onClick={() => setIsMobileOptionsVisible(!isMobileOptionsVisible)}
@@ -84,10 +133,15 @@ export function TopBar() {
 
         <div className="rounded-md overflow-hidden w-10 h-10">
           <Image
-            src="https://avatars.githubusercontent.com/u/54003876?v=4"
+            src={user.imgurl || ""}
             alt="Foto de perfil do usuário"
             width={40}
             height={40}
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "100%",
+            }}
           />
         </div>
       </div>
