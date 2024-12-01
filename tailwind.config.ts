@@ -5,6 +5,7 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -12,12 +13,12 @@ export default {
         "surface-color-primary": "var(--surface-color-primary)",
         "surface-color-secundary": "var(--surface-color-secondary)",
         "main-color": "var(--main-color)",
-        "text-primary-color": "var(--text-primary-color)",
-        "text-secondary-color": "var(--text-secondary-color)",
+        "font-primary-color": "var(--font-primary-color)",
+        "font-secondary-color": "var(--font-secondary-color)",
         "line-color": "var(--line-color)",
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
       },
     },
   },
