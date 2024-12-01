@@ -15,7 +15,6 @@ import pencilFill from "@/shared/assets/icons/pencil-fill.svg";
 import trashOutline from "@/shared/assets/icons/trash-outline.svg";
 import trashFill from "@/shared/assets/icons/trash-fill.svg";
 
-import BooksSection from "@/shared/components/books-section";
 import Footer from "@/shared/components/footer";
 
 export function Book() {
@@ -60,7 +59,7 @@ export function Book() {
                 Sumário do livro:
               </strong>{" "}
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
+              industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book. It has
               survived not only five centuries, but also the leap into
