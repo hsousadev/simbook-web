@@ -14,6 +14,7 @@ import pencilFill from "@/shared/assets/icons/pencil-fill.svg";
 
 import trashOutline from "@/shared/assets/icons/trash-outline.svg";
 import trashFill from "@/shared/assets/icons/trash-fill.svg";
+
 import BooksSection from "@/shared/components/books-section";
 import Footer from "@/shared/components/footer";
 
