@@ -82,7 +82,11 @@ export function TopBar() {
           </IconButton>
           {user.permission.includes("main") && (
             <>
-              <IconButton icon={usersOutline} iconOnHover={usersFill}>
+              <IconButton
+                onClick={() => router.push("/users")}
+                icon={usersOutline}
+                iconOnHover={usersFill}
+              >
                 Gerenciar usuários
               </IconButton>
 

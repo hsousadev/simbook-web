@@ -1,4 +1,5 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+// import Image from "next/image";
 
 interface UserInfoProps {
   name: string;
@@ -8,9 +9,9 @@ interface UserInfoProps {
 
 export function UserInfo({ name, imgurl, permission }: UserInfoProps) {
   return (
-    <div className="flex items-center justify-between gap-2 ">
+    <div className="flex items-start justify-start gap-2">
       <div className="rounded-md overflow-hidden object-cover w-10 h-10">
-        <Image
+        <img
           src={imgurl}
           alt="Foto de perfil do usuário"
           width={40}
