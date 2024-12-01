@@ -93,7 +93,7 @@ export function Book() {
         </div>
       </div>
 
-      <BooksSection sectionTitle="Adicionados recentemente" />
+      {/* <BooksSection sectionTitle="Adicionados recentemente" /> */}
 
       <Footer />
     </div>
