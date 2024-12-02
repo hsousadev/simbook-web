@@ -21,43 +21,36 @@ export function Categories({ handleFunction }: CategoryProps) {
         <CategoryItem
           name="Fantasia"
           onClick={() => handleFunction("Fantasia")}
-          amount={20}
           img={fantasy}
         />
         <CategoryItem
           name="Ficção"
           onClick={() => handleFunction("Ficção")}
-          amount={20}
           img={ficction}
         />
         <CategoryItem
           name="HQs"
           onClick={() => handleFunction("HQs")}
-          amount={20}
           img={hq}
         />
         <CategoryItem
           name="Arte"
           onClick={() => handleFunction("Arte")}
-          amount={20}
           img={art}
         />
         <CategoryItem
           name="Ciência"
           onClick={() => handleFunction("Ciência")}
-          amount={20}
           img={science}
         />
         <CategoryItem
           name="Tecnologia"
           onClick={() => handleFunction("Tecnologia")}
-          amount={20}
           img={tech}
         />
         <CategoryItem
           name="Auto ajuda"
           onClick={() => handleFunction("Auto ajuda")}
-          amount={20}
           img={selfHelp}
         />
       </div>

@@ -4,14 +4,14 @@ import { HTMLAttributes } from "react";
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
   img: StaticImageData;
   name: string;
-  amount: number;
+  // amount?: number;
   onClick: () => void;
 }
 
 export function CategoryItem({
   img,
   name,
-  amount,
+  // amount,
   onClick,
 }: CategoryItemProps) {
   return (
@@ -25,9 +25,9 @@ export function CategoryItem({
       <p className="text-md font-semibold transition duration-300 ease-in-out group-hover:text-main-color">
         {name}
       </p>
-      <span className="text-xs">
+      {/* <span className="text-xs">
         {amount > 0 ? `${amount} Livros` : `${amount} Livro`} Livros
-      </span>
+      </span> */}
     </div>
   );
 }
