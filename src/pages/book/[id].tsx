@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 import Image from "next/image";
@@ -110,6 +111,18 @@ export function Book(data: any) {
     setIsLoading(false);
     setIsOpenDeleteModal(false);
   }
+
+  function loadUserFromSessionStorage() {
+    const sessionUser = sessionStorage.getItem("user");
+    if (sessionUser) {
+    } else {
+      router.push("/");
+    }
+  }
+
+  useEffect(() => {
+    loadUserFromSessionStorage();
+  }, []);
 
   return (
     <div className="flex items-center justify-center flex-col">

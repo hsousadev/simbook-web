@@ -23,6 +23,9 @@ import singOutFill from "@/shared/assets/icons/sign-out-fill.svg";
 import arrowDownOutline from "@/shared/assets/icons/arrow-down-outline.svg";
 import arrowUpOutline from "@/shared/assets/icons/arrow-up-outline.svg";
 
+import homeOutline from "@/shared/assets/icons/home-outline.svg";
+import homeFill from "@/shared/assets/icons/home-fill.svg";
+
 import IconButton from "./icon-button";
 import UserInfo from "./user-info";
 import MainButton from "./main-button";
@@ -31,6 +34,8 @@ import AddBook from "./add-book";
 
 export function TopBar() {
   const router = useRouter();
+
+  const isHome = router.pathname === "/";
 
   const [user, setUser] = useState<User>({
     id: "",
@@ -54,6 +59,12 @@ export function TopBar() {
   function clearUserOnSessionStorage() {
     sessionStorage.removeItem("user");
     window.location.reload();
+  }
+
+  function handleLogout() {
+    clearUserOnSessionStorage();
+    router.push("/");
+    console.log("aqui");
   }
 
   useEffect(() => {
@@ -81,7 +92,20 @@ export function TopBar() {
             isMobileOptionsVisible ? "flex flex-col" : "hidden"
           } md:flex md:flex-row items-center justify-between gap-4 `}
         >
-          <IconButton icon={heartOutline} iconOnHover={heartFill}>
+          {!isHome && (
+            <IconButton
+              onClick={() => router.push("/")}
+              icon={homeOutline}
+              iconOnHover={homeFill}
+            >
+              Página inicial
+            </IconButton>
+          )}
+          <IconButton
+            onClick={() => router.push("/favorites")}
+            icon={heartOutline}
+            iconOnHover={heartFill}
+          >
             Seus favoritos
           </IconButton>
           {user.permission.includes("main") && (
@@ -108,7 +132,7 @@ export function TopBar() {
             icon={signOutOutline}
             iconOnHover={singOutFill}
             color="text-red-400"
-            onClick={clearUserOnSessionStorage}
+            onClick={handleLogout}
           >
             Sair
           </IconButton>

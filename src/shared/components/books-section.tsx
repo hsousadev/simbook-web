@@ -3,7 +3,7 @@ import { BookItem } from "./book-item";
 
 interface BooksSectionProps {
   sectionTitle: string;
-  books: Book[];
+  books: Book[] | undefined;
 }
 
 export function BooksSection({ sectionTitle, books }: BooksSectionProps) {
@@ -12,7 +12,7 @@ export function BooksSection({ sectionTitle, books }: BooksSectionProps) {
       <h4 className="text-sm font-bold ml-8">{sectionTitle}</h4>
 
       <div className="flex flex-wrap p-8 items-start justify-center sm:justify-start md:flex md:flex-row md:justify-start gap-9 max-w-screen-xl w-full">
-        {books.map((book) => (
+        {books?.map((book) => (
           <BookItem key={book.id} {...book} />
         ))}
       </div>
