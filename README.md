@@ -8,8 +8,7 @@ Aplicação de gerenciamento de Livros. Projeto FULL STACK + UI Design - Next.js
 
 🔙 Back-end: https://github.com/hsousadev/simbook-node-server
 
-![image](https://github.com/user-attachments/assets/42d791fd-4cf7-43a8-a4da-133e76e86af4)
-
+![simbook-cover](https://github.com/user-attachments/assets/6b4ae09b-59e6-4fa7-b25d-fc2865c06955)
 
 ## 💡Dicas importantes
 - Usuário Admin principal: hsousadev (senha: 123456)
