@@ -9,8 +9,10 @@ Aplicação de gerenciamento de Livros. Projeto FULL STACK + UI Design - Next.js
 ![image](https://github.com/user-attachments/assets/42d791fd-4cf7-43a8-a4da-133e76e86af4)
 
 
-
-
+## 💡Dicas importantes
+- Usuário Admin principal: hsousadev (senha: 123456)
+- Usuário com cargo de administrador: Coloque "admin" ao criar um novo usuário
+- Usuário comum: Coloque "default" ao criar um novo usuário
 
 ## 🚀 Build para rodar localmente
 
