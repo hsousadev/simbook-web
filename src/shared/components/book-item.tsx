@@ -9,7 +9,7 @@ import heartFill from "@/shared/assets/icons/heart-fill.svg";
 
 import MainButton from "./main-button";
 
-import { Book, User } from "@/pages";
+import { Book } from "@/pages";
 import { useEffect, useState } from "react";
 
 export function BookItem({ imgurl, title, authorname, id }: Book) {

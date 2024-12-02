@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import logo from "@/shared/assets/logo/logo-primary.svg";
-import arrowLineUpOutline from "@/shared/assets/icons/arrow-line-up-outline.svg";
 import codeOutline from "@/shared/assets/icons/code-outline.svg";
 
 export function Footer() {
