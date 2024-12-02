@@ -2,7 +2,7 @@
 
 Aplicação de gerenciamento de Livros. Projeto FULL STACK + UI Design - Next.js, React, Tailwind e Node.js
 
-🟢 Disponível Online Link: https://simbook-web.vercel.app/
+🟢 Disponível Online Link: https://simbook-web.vercel.app/ (Em caso de erro 502, espere uns segundos e recarregue) 
 
 🎨 Figma: https://www.figma.com/design/Swn7Rf0QcQ9X87Z1YbBOb9/Simbook?node-id=0-1&t=fEn5vqi4iivY6S5M-1
 
