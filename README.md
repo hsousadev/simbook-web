@@ -6,6 +6,8 @@ Aplicação de gerenciamento de Livros. Projeto FULL STACK + UI Design - Next.js
 
 🎨 Figma: https://www.figma.com/design/Swn7Rf0QcQ9X87Z1YbBOb9/Simbook?node-id=0-1&t=fEn5vqi4iivY6S5M-1
 
+🔙 Back-end: https://github.com/hsousadev/simbook-node-server
+
 ![image](https://github.com/user-attachments/assets/42d791fd-4cf7-43a8-a4da-133e76e86af4)
 
 
