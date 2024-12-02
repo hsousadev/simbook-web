@@ -182,9 +182,9 @@ export function Book(data: any) {
           </div>
 
           <div className="flex flex-col items-center justify-start md:flex md:flex-row md:items-center md:justify-start gap-4 w-full">
-            <IconButton icon={heartOutline} iconOnHover={heartFill}>
+            {/* <IconButton icon={heartOutline} iconOnHover={heartFill}>
               Favoritar
-            </IconButton>
+            </IconButton> */}
 
             {isAdmin && (
               <>
