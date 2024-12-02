@@ -67,6 +67,10 @@ export function Book(data: any) {
   const router = useRouter();
   const { id } = router.query;
 
+  const [user, setUser] = useState<any>();
+
+  const isAdmin = user?.permission.includes("admin");
+
   const [initialBook, setInitialBook] = useState(data.book);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -115,6 +119,7 @@ export function Book(data: any) {
   function loadUserFromSessionStorage() {
     const sessionUser = sessionStorage.getItem("user");
     if (sessionUser) {
+      setUser(JSON.parse(sessionUser));
     } else {
       router.push("/");
     }
@@ -180,21 +185,26 @@ export function Book(data: any) {
             <IconButton icon={heartOutline} iconOnHover={heartFill}>
               Favoritar
             </IconButton>
-            <IconButton
-              onClick={() => setIsEditModalOpen(true)}
-              icon={pencilOutline}
-              iconOnHover={pencilFill}
-            >
-              Editar Informações
-            </IconButton>
-            <IconButton
-              icon={trashOutline}
-              iconOnHover={trashFill}
-              color="text-red-400"
-              onClick={() => setIsOpenDeleteModal(true)}
-            >
-              Deletar livro
-            </IconButton>
+
+            {isAdmin && (
+              <>
+                <IconButton
+                  onClick={() => setIsEditModalOpen(true)}
+                  icon={pencilOutline}
+                  iconOnHover={pencilFill}
+                >
+                  Editar Informações
+                </IconButton>
+                <IconButton
+                  icon={trashOutline}
+                  iconOnHover={trashFill}
+                  color="text-red-400"
+                  onClick={() => setIsOpenDeleteModal(true)}
+                >
+                  Deletar livro
+                </IconButton>
+              </>
+            )}
           </div>
         </div>
       </div>

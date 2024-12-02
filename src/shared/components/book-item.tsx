@@ -9,11 +9,13 @@ import heartFill from "@/shared/assets/icons/heart-fill.svg";
 
 import MainButton from "./main-button";
 
-import { Book } from "@/pages";
+import { Book, User } from "@/pages";
 import { useEffect, useState } from "react";
 
 export function BookItem({ imgurl, title, authorname, id }: Book) {
   const router = useRouter();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [isFavorited, setIsFavorited] = useState(false);
 
@@ -76,9 +78,20 @@ export function BookItem({ imgurl, title, authorname, id }: Book) {
     }
   }
 
+  function loadUserFromSessionStorage() {
+    const sessionUser = sessionStorage.getItem("user");
+    if (sessionUser) {
+      setIsLoggedIn(true);
+    }
+  }
+
   useEffect(() => {
     verifyBookOnFavorites();
   }, [id]);
+
+  useEffect(() => {
+    loadUserFromSessionStorage();
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-between gap-4 max-w-[8.75rem]">
@@ -124,7 +137,13 @@ export function BookItem({ imgurl, title, authorname, id }: Book) {
         </div>
       )}
 
-      <MainButton onClick={() => router.push(`/book/${id}`)}>Ver</MainButton>
+      {!isLoggedIn ? (
+        <MainButton onClick={() => router.push(`/login`)}>
+          Fazer login
+        </MainButton>
+      ) : (
+        <MainButton onClick={() => router.push(`/book/${id}`)}>Ver</MainButton>
+      )}
     </div>
   );
 }

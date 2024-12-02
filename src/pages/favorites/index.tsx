@@ -14,8 +14,6 @@ export function Favorites() {
       // Recupera localStorage
       const storedFavorites = localStorage.getItem(favoritesKey);
 
-      console.log("storedFavorites", storedFavorites);
-
       const parsedFavorites = storedFavorites
         ? JSON.parse(storedFavorites)
         : [];

@@ -11,20 +11,14 @@ export function Footer() {
         <div className="flex justify-between w-full">
           <Image src={logo} alt="Logo Simbook" width={120} />
 
-          <a href="#id" className="flex items-center justify-center gap-2">
-            <Image
-              src={arrowLineUpOutline}
-              alt="Logo Simbook"
-              width={24}
-              height={24}
-            />
-            Voltar para o topo
-          </a>
+          <span className="flex items-center justify-center gap-2">
+            Aplicação de gerenciamento de Livros.
+          </span>
         </div>
       </div>
 
       <div className="flex flex-col gap-4 items-center justify-center w-full md:flex md:flex-row md:justify-between">
-        <span>©2024 · Aplicação de gerenciamento de Livros. </span>
+        <span>©2024 · Para estudos e testes. </span>
         <a
           href="https://henriquesousadev.vercel.app"
           target="_blank"

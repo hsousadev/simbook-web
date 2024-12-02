@@ -67,6 +67,9 @@ export const getServerSideProps = async () => {
 
 export function Home({ books }: { books: Book[] }) {
   const router = useRouter();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [user, setUser] = useState<User>({
     id: "",
     username: "",
@@ -83,6 +86,8 @@ export function Home({ books }: { books: Book[] }) {
   const exploreBooks = books.slice(7);
 
   async function handleSearch(searchText: string) {
+    console.log("searchText", searchText);
+
     setSearchText(searchText);
 
     try {
@@ -106,6 +111,7 @@ export function Home({ books }: { books: Book[] }) {
     const sessionUser = sessionStorage.getItem("user");
     if (sessionUser) {
       setUser(JSON.parse(sessionUser));
+      setIsLoggedIn(true);
     }
   }
 
@@ -136,12 +142,14 @@ export function Home({ books }: { books: Book[] }) {
           </div>
         )}
 
-        <div className="flex justify-end gap-6 w-[50%]">
-          <SearchBar
-            handleFunction={handleSearch}
-            placeholder="Pesquise por livros"
-          />
-        </div>
+        {isLoggedIn && (
+          <div className="flex justify-end gap-6 w-[50%]">
+            <SearchBar
+              handleFunction={handleSearch}
+              placeholder="Pesquise por livros"
+            />
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col gap-12 items-center justify-center max-w-[76.875rem]">
@@ -166,7 +174,8 @@ export function Home({ books }: { books: Book[] }) {
           </div>
         )}
 
-        <Categories />
+        <Categories handleFunction={handleSearch} />
+
         <BooksSection
           sectionTitle="Adicionados recentemente"
           books={recentBooks}
