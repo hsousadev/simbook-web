@@ -10,9 +10,6 @@ import Image from "next/image";
 import TopBar from "@/shared/components/top-bar";
 import IconButton from "@/shared/components/icon-button";
 
-import heartOutline from "@/shared/assets/icons/heart-outline.svg";
-import heartFill from "@/shared/assets/icons/heart-fill.svg";
-
 import pencilOutline from "@/shared/assets/icons/pencil-outline.svg";
 import pencilFill from "@/shared/assets/icons/pencil-fill.svg";
 

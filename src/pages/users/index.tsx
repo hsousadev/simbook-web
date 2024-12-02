@@ -123,11 +123,6 @@ export function Users({ users }: { users: User[] }) {
   }
 
   function isAuthorizedUser(user: User | undefined) {
-    if (!user) {
-      router.push("/");
-      return;
-    }
-
     if (user && !user?.permission.includes("admin")) {
       toast.warning("Sem autorização para essa rota");
       router.push("/");
@@ -140,8 +135,6 @@ export function Users({ users }: { users: User[] }) {
   }, []);
 
   useEffect(() => {
-    console.log("user", user);
-
     isAuthorizedUser(user);
   }, [user]);
 
